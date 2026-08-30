@@ -98,7 +98,7 @@ const Pricing = () => {
               )}
               <h3 className="font-medium text-lg">{plan.name}</h3>
               <p className="mt-4 font-semibold text-4xl">
-                ${plan.price} MXN
+                ${plan.price} MXN + IVA
               </p>
               <p className="mt-4 text-black">{plan.description}</p>
               <Separator className="my-6" />

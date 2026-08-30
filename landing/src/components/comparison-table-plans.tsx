@@ -31,14 +31,14 @@ export const COMPARISON_SECTIONS: ComparisonSection[] = [
       {
         feature: "Mensualidad",
         starter: "Gratis ($0)",
-        advanced: "$3,000.00 MXN",
-        premium: "$7,600.00 MXN",
+        advanced: "$3,000.00 MXN + IVA",
+        premium: "$7,600.00 MXN + IVA",
       },
       {
         feature: "Mensualidad (Plan Anual)",
         starter: "Gratis ($0)",
-        advanced: "$2,400.00 MXN/mes",
-        premium: "$6,080.00 MXN/mes",
+        advanced: "$2,400.00 MXN + IVA/mes",
+        premium: "$6,080.00 MXN + IVA/mes",
       },
     ],
   },
@@ -60,8 +60,8 @@ export const COMPARISON_SECTIONS: ComparisonSection[] = [
       {
         feature: "Usuario Administrador Extra",
         starter: false,
-        advanced: "$400.00 MXN",
-        premium: "$180.00 MXN",
+        advanced: "$400.00 MXN + IVA",
+        premium: "$180.00 MXN + IVA",
       },
     ],
   },
@@ -158,13 +158,13 @@ export const COMPARISON_SECTIONS: ComparisonSection[] = [
       {
         feature: "Configuración Inicial / Setup",
         starter: false,
-        advanced: "$1,800.00 MXN",
+        advanced: "$1,800.00 MXN + IVA",
         premium: true,
       },
       {
         feature: "Capacitación Remota (Sesión 30 min)",
         starter: false,
-        advanced: "$1,800.00 MXN",
+        advanced: "$1,800.00 MXN + IVA",
         premium: true,
       },
       {
