@@ -41,10 +41,10 @@ const Footer = () => {
     {
       title: "Legal",
       items: [
-        { href: "/terminos", label: "Términos y Condiciones" },
-        { href: "/#privacy", label: "Política de privacidad" },
-        { href: "/#security-compliance", label: "Cumplimiento de Seguridad" },
-        { href: "/#marca", label: "Uso de Marca" },
+        { href: "/terminos-y-condiciones", label: "Términos y Condiciones" },
+        { href: "/politica-de-privacidad", label: "Política de privacidad" },
+        { href: "/cumplimiento-de-seguridad", label: "Cumplimiento de Seguridad" },
+        { href: "/uso-de-marca", label: "Uso de Marca" },
       ],
     },
   ];
