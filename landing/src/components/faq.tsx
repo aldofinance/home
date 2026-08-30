@@ -18,17 +18,17 @@ const faqs = [
   {
     question: "¿Tienen algún descuento si pago de forma anual?",
     answer:
-        "Sí, al elegir el pago anual ahorras 2 meses completos de suscripción. El plan Primary pasa de $175 USD a $140 USD/mes ($1,720 USD al año) y el plan Corporate pasa de $450 USD a $375 USD/mes ($4,500 USD al año).",
+        "Sí, al elegir el pago anual ahorras 2 meses completos de suscripción. El plan Primary pasa de $3,000 MXN a $2,400 MXN/mes ($28,800 MXN al año) y el plan Corporate pasa de $7,600 MXN a $6,080 MXN/mes ($72,960 MXN al año).",
   },
   {
     question: "¿Qué pasa si necesito administradores adicionales?",
     answer:
-        "Si estás en el plan Primary puedes agregar usuarios administradores extra por $20.00 USD/mes cada uno. En el plan Corporate el costo preferencial por administrador extra es de solo $9.00 USD/mes (además de los 3 que ya vienen incluidos).",
+        "Si estás en el plan Primary puedes agregar usuarios administradores extra por $400.00 MXN/mes cada uno. En el plan Corporate el costo preferencial por administrador extra es de solo $180.00 MXN/mes (además de los 3 que ya vienen incluidos).",
   },
   {
     question: "¿Cobran costo de instalación o configuración inicial?",
     answer:
-        "En los planes Free y Primary puedes empezar de inmediato por tu cuenta. Si deseas que nuestro equipo realice la configuración inicial o capacite a tu personal en Primary, ofrecemos la sesión por $90.00 USD. En el plan Corporate, la configuración inicial y capacitación están 100% incluidas sin costo extra.",
+        "En los planes Free y Primary puedes empezar de inmediato por tu cuenta. Si deseas que nuestro equipo realice la configuración inicial o capacite a tu personal en Primary, ofrecemos la sesión por $1,800.00 MXN. En el plan Corporate, la configuración inicial y capacitación están 100% incluidas sin costo extra.",
   },
   {
     question: "¿Hay plazos forzosos o puedo cancelar cuando quiera?",

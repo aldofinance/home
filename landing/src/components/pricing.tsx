@@ -28,7 +28,7 @@ const plans = [
   },
   {
     name: "Primary",
-    price: 175,
+    price: 3000,
     isRecommended: true,
     description:
         "La experiencia completa de Qontrol para profesionales que buscan un verdadero aliado en su trabajo.",
@@ -46,7 +46,7 @@ const plans = [
   },
   {
     name: "Corporate",
-    price: 450,
+    price: 7600,
     description:
         "Para equipos en crecimiento que necesitan optimizar tiempos, organizar evidencias y escalar sus operaciones.",
     features: [
@@ -98,7 +98,7 @@ const Pricing = () => {
               )}
               <h3 className="font-medium text-lg">{plan.name}</h3>
               <p className="mt-4 font-semibold text-4xl">
-                ${plan.price} USD
+                ${plan.price} MXN
               </p>
               <p className="mt-4 text-black">{plan.description}</p>
               <Separator className="my-6" />
