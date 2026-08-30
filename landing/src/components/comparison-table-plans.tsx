@@ -145,7 +145,7 @@ export const COMPARISON_SECTIONS: ComparisonSection[] = [
     title: "Personalización y Add-ons",
     rows: [
       {
-        feature: "Marca Blanca en Documentos",
+        feature: "Marca Blanca",
         starter: false,
         advanced: false,
         premium: true,
@@ -158,13 +158,13 @@ export const COMPARISON_SECTIONS: ComparisonSection[] = [
       {
         feature: "Configuración Inicial / Setup",
         starter: false,
-        advanced: "$1,800.00 MXN + IVA",
+        advanced: true,
         premium: true,
       },
       {
         feature: "Capacitación Remota (Sesión 30 min)",
         starter: false,
-        advanced: "$1,800.00 MXN + IVA",
+        advanced: true,
         premium: true,
       },
       {

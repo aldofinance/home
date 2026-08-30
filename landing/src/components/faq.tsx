@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "¿El plan gratuito tiene límite de tiempo?",
     answer:
-        "No, el plan Free for Life es gratis para siempre y no requiere tarjeta de crédito. Incluye 1 usuario técnico, 1 administrador, 500 MB de almacenamiento y hasta 4 reportes por semana para que comiences sin prisa.",
+        "No, el plan Free for Life es gratis para siempre y no requiere tarjeta de crédito. Incluye 1 usuario técnico, 1 administrador, 500 MB de almacenamiento y hasta 4 reportes por semana para que comiences sin prisa. Ten en cuenta que esto puede cambiar, por lo que te invitamos a revisar nuestros términos y condiciones en https://www.theqontrol.com/terminos.",
   },
   {
     question: "¿Puedo cambiar de plan si mi equipo crece?",
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "¿Cobran costo de instalación o configuración inicial?",
     answer:
-        "En los planes Free y Primary puedes empezar de inmediato por tu cuenta. Si deseas que nuestro equipo realice la configuración inicial o capacite a tu personal en Primary, ofrecemos la sesión por $1,800.00 MXN + IVA. En el plan Corporate, la configuración inicial y capacitación están 100% incluidas sin costo extra.",
+        "En el plan Free for Life puedes empezar de inmediato por tu cuenta, ya que la configuración por parte de nuestro equipo no está incluida. Para nuestros demás planes, la configuración inicial y la capacitación son totalmente gratuitas. Ten en cuenta que esto puede cambiar, por lo que te invitamos a revisar nuestros términos y condiciones en https://www.theqontrol.com/terminos.",
   },
   {
     question: "¿Hay plazos forzosos o puedo cancelar cuando quiera?",
