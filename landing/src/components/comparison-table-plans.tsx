@@ -235,7 +235,7 @@ export function ComparisonTablePlans() {
                       <Button
                           variant="outline"
                           className="w-full h-12 text-sm text-black font-semibold"
-                      >
+                      >r
                         Corporate
                       </Button>
                     </div>
