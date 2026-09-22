@@ -216,7 +216,7 @@ export function ComparisonTablePlans() {
                           variant="outline"
                           className="w-full h-12 text-sm text-black font-semibold"
                       >
-                        Free for Life
+                        Free
                       </Button>
                     </div>
                   </TableHead>
