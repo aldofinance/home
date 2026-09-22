@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "¿El plan gratuito tiene límite de tiempo?",
     answer:
-        "No, el plan Free for Life es gratis para siempre y no requiere tarjeta de crédito. Incluye 1 usuario técnico, 1 administrador, 500 MB de almacenamiento y hasta 4 reportes por semana para que comiences sin prisa. Ten en cuenta que esto puede cambiar, por lo que te invitamos a revisar nuestros términos y condiciones.",
+        "Sí, el plan Free tiene un límite de 15 días. Incluye 1 usuario técnico, 1 administrador, 500 MB de almacenamiento y hasta 4 reportes por semana para que lo pruebes. Ten en cuenta que esto puede cambiar, por lo que te invitamos a revisar nuestros términos y condiciones.",
   },
   {
     question: "¿Puedo cambiar de plan si mi equipo crece?",
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "¿Cobran costo de instalación o configuración inicial?",
     answer:
-        "En el plan Free for Life puedes empezar de inmediato por tu cuenta, ya que la configuración por parte de nuestro equipo no está incluida. Para nuestros demás planes, la configuración inicial y la capacitación son totalmente gratuitas. Ten en cuenta que esto puede cambiar, por lo que te invitamos a revisar nuestros términos y condiciones.",
+        "En el plan Free puedes empezar de inmediato por tu cuenta, ya que la configuración por parte de nuestro equipo no está incluida. Para nuestros demás planes, la configuración inicial y la capacitación son totalmente gratuitas. Ten en cuenta que esto puede cambiar, por lo que te invitamos a revisar nuestros términos y condiciones.",
   },
   {
     question: "¿Hay plazos forzosos o puedo cancelar cuando quiera?",

@@ -132,9 +132,9 @@ const productTabs = [
 // --- PLANES DE PRECIO ---
 const plans = [
     {
-        name: "Free for Life",
+        name: "Free",
         price: "0",
-        period: "gratis para siempre",
+        period: "gratis",
         description: "Para profesionales que están iniciando. Sin tarjeta de crédito.",
         features: [
             "1 Usuario Técnico + 1 Administrador",
@@ -157,8 +157,8 @@ const plans = [
             "Usuarios Técnicos ilimitados",
             "Almacenamiento ilimitado",
             "Reportes y envíos por correo ilimitados",
-            "Dashboard de productividad con IA",
-            "Descarga masiva en ZIP (Excel + PDF)",
+            "Dashboard de productividad",
+            "Descarga masiva en (Excel + PDF)",
             "Plantillas ilimitadas de formularios",
             "Firma Digital e Historial inalterable",
         ],
@@ -189,7 +189,7 @@ const plans = [
 const faqs = [
     {
         q: "¿El plan gratuito tiene límite de tiempo?",
-        a: "No, el plan Free for Life es gratis para siempre. Incluye 1 técnico, 1 administrador y 4 reportes por semana para operar sin compromisos.",
+        a: "Sí, el plan gratuito tiene un límite de 15 días. Incluye 1 técnico, 1 administrador y 4 reportes por semana para operar sin compromisos.",
     },
     {
         q: "¿Puedo cambiar de plan cuando mi equipo crezca?",

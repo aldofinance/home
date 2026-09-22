@@ -11,18 +11,17 @@ import { FrequentlyAskedQuestions } from "@/components/faq";
 
 const plans = [
   {
-    name: "Free for Life",
+    name: "Free",
     price: 0,
     description:
         "Ideal para profesionales que están empezando. Sin necesidad de tarjeta de crédito.",
     features: [
       "1 Usuario Técnico + 1 Administrador",
-      "500 MB de Almacenamiento de evidencias",
-      "4 Reportes y envíos por semana",
+      "500 MB de Almacenamiento",
+      "4 Reportes semanales",
       "Registro Offline (Sin Internet)",
       "Firma Digital incluida",
-      "2 Plantillas de documentos y formularios",
-      "Soporte por Correo",
+      "2 Plantillas personalizables",
     ],
     buttonText: "Try Free",
   },
@@ -34,12 +33,12 @@ const plans = [
         "La experiencia completa de Qontrol para profesionales que buscan un verdadero aliado en su trabajo.",
     features: [
       "Usuarios Técnicos ilimitados",
-      "Almacenamiento de evidencias ilimitado",
+      "Almacenamiento ilimitado",
       "Reportes y envíos por correo ilimitados",
-      "Dashboard de productividad con exportación a PDF",
-      "Descarga masiva de evidencias en ZIP (Excel + PDF)",
+      "Dashboard de productividad",
+      "Descarga masiva de evidencias en (Excel + PDF)",
       "Plantillas ilimitadas de documentos y formularios",
-      "Firma Digital e Historial de Auditoría",
+      "Firma Digital e Historial inalterable",
     ],
     buttonText: "Try Free",
     isPopular: true,
@@ -50,13 +49,13 @@ const plans = [
     description:
         "Para equipos en crecimiento que necesitan optimizar tiempos, organizar evidencias y escalar sus operaciones.",
     features: [
-      "Todo lo incluido en el plan Primary",
+      "Todo lo del plan Primary",
       "3 Usuarios Administradores incluidos",
-      "Soporte prioritario por WhatsApp + Correo",
-      "Marca blanca personalizada en documentos",
+      "Soporte prioritario por WhatsApp",
+      "Marca blanca personalizada",
       "Descarga masiva e integración Cloud",
-      "Configuración inicial y setup 100% incluido",
-      "Capacitación remota para tu equipo incluida",
+      "Configuración e integración inicial incluida",
+      "Capacitación remota para tu equipo",
     ],
     buttonText: "Try Free",
   },

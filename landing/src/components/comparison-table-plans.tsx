@@ -100,14 +100,14 @@ export const COMPARISON_SECTIONS: ComparisonSection[] = [
       {
         feature: "Soporte Técnico",
         starter: "Solo Correo",
-        advanced: "Solo Correo",
+        advanced: "WhatsApp + Correo",
         premium: "WhatsApp + Correo",
       },
       {
         feature: "Descarga Masiva de Evidencias",
         starter: false,
-        advanced: "Carpetas ZIP (Excel+PDF)",
-        premium: "Carpetas ZIP (Excel+PDF) + Cloud",
+        advanced: "Carpetas (Excel+PDF)",
+        premium: "Carpetas (Excel+PDF) + Cloud",
       },
       {
         feature: "Firma Digital",
