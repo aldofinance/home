@@ -58,7 +58,7 @@ const Navbar = () => {
             <div className="flex items-center gap-2 sm:gap-3">
               <Button asChild className="bg-brand text-white px-3 sm:px-4">
                 <Link
-                    href=""
+                    href="https://calendar.app.google/HueQQwgFaVgzDoam8"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1"

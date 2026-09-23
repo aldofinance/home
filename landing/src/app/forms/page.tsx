@@ -312,7 +312,7 @@ export default function FormsPage() {
                             size="lg"
                             asChild
                         >
-                            <Link href="https://www.theqontrol.com/" target="_blank">
+                            <Link href="https://calendar.app.google/HueQQwgFaVgzDoam8" target="_blank">
                                 Conocer la Plataforma
                             </Link>
                         </Button>
@@ -320,11 +320,6 @@ export default function FormsPage() {
 
                     <div className="mt-12 pt-8 border-t-2 border-black/10 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-gray-700 font-bold">
                         <div className="flex items-center gap-2">
-                            <Building2 className="h-4 w-4 text-black" />
-                            <span>Implementado en <strong className="text-black font-black">más de 300 plantas e industrias</strong></span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Sparkles className="h-4 w-4 text-brand" />
                             <span>Desarrollado en <strong className="text-black font-black">Saltillo, Coahuila 🇲🇽</strong></span>
                         </div>
                     </div>

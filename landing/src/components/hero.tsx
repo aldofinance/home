@@ -64,12 +64,12 @@ return (
 
               <div className="mt-8">
                 <Button
-                    className="h-10 px-6 text-base font-bold uppercase tracking-widest bg-brand text-white"
-                    size="sm"
+                    className="h-14 px-8 text-base font-bold bg-brand text-white border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all rounded-none w-full sm:w-auto uppercase"
+                    size="lg"
                     asChild
                 >
                   <Link
-                      href=""
+                      href="https://calendar.app.google/HueQQwgFaVgzDoam8"
                       target="_blank"
                       rel="noopener noreferrer"
                   >
