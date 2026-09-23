@@ -72,7 +72,7 @@ const studyCases = [
         title: "1. Eliminación del Trabajo Doble",
         shortName: "Captura Directa",
         problem: "Técnicos acuden con reporte impreso en papel y lo entregan manualmente al capturista para su transcripción y posterior envío.",
-        solution: "Reemplazo total por formularios dinámicos en app web adaptados a la inspección actual, accesibles desde celular, tablet o computadora.",
+        solution: "Reemplazo total por formularios dinámicos adaptados a la inspección actual, accesibles desde celular, tablet o computadora.",
         icon: Smartphone,
         tagline: "0% transcripción manual",
         bgGradient: "bg-black text-white",
@@ -90,7 +90,7 @@ const studyCases = [
     {
         id: "firma",
         title: "3. Firma Digital & Entrega Instantánea",
-        shortName: "Despacho Inmediato",
+        shortName: "Envió Inmediato",
         problem: "Días o semanas de retraso para que el cliente reciba la documentación oficial del servicio o auditoría realizada.",
         solution: "Captura de firma digital del técnico y del cliente en pantalla. En segundos se emite el PDF oficial con identidad corporativa y se entrega al cliente.",
         icon: PenTool,
@@ -102,7 +102,7 @@ const studyCases = [
         title: "4. Historial Auditable en la Nube",
         shortName: "Control Administrador",
         problem: "Hojas traspapeladas, archivos dispersos y falta de visibilidad del cumplimiento general ante auditorías.",
-        solution: "Panel de administración centralizado con acceso al historial completo de todas las revisiones, con trazabilidad inalterable.",
+        solution: "Panel de administración centralizado con acceso al historial completo de todas las revisiones, sin límite de almacenamiento.",
         icon: Database,
         tagline: "Acceso total para administradores",
         bgGradient: "bg-neutral-900 text-white",
@@ -113,12 +113,12 @@ const studyCases = [
 const productTabs = [
     {
         id: "dashboard",
-        label: "Dashboard IA",
+        label: "Dashboard",
         icon: LayoutDashboard,
         badge: "Análisis Automatizado",
         title: "Visualiza el cumplimiento general sin abrir un solo Excel",
         description:
-            "Obtén el porcentaje exacto de activos en estado OK / NO OK en tiempo real. Monitorea presiones, sellos, manómetros y pruebas hidrostáticas con analítica operativa.",
+            "Obtén el porcentaje exacto de activos en estado de cumplimiento en tiempo real. Monitorea presiones, sellos, manómetros y pruebas hidrostáticas con analítica operativa y mucho más.",
         imageSrc: "/image/dashboard.png",
     },
     {
@@ -128,8 +128,8 @@ const productTabs = [
         badge: "Geolocalización GPS",
         title: "Ubica cada extintor y equipo en el mapa",
         description:
-            "Visualización geográfica por cliente, sede o mes de recarga. Localiza de inmediato cualquier activo dentro de las instalaciones con trazabilidad total.",
-        imageSrc: "/image/mapa.jpg",
+            "Visualización geográfica por cliente, sede o mes de recarga. Localiza de inmediato cualquier activo.",
+        imageSrc: "/image/mapa.png",
     },
     {
         id: "historial",
@@ -138,7 +138,7 @@ const productTabs = [
         badge: "Validez Legal NOM/STPS",
         title: "Historial inalterable con envíos automáticos",
         description:
-            "Genera reportes PDF oficiales con firma digital y folio único. Distribuye los documentos por correo electrónico en cuanto concluye la revisión en campo.",
+            "Genera reportes PDF oficiales con firma digital y folio único.",
         imageSrc: "/image/historial.png",
     },
     {
@@ -266,7 +266,7 @@ export default function FormsPage() {
         setSendingStatus("sending");
         setTimeout(() => {
             setSendingStatus("sent");
-            mostrarToast("Reporte PDF oficial despachado correctamente al cliente.", false);
+            mostrarToast("Reporte PDF oficial enviado correctamente al cliente.", false);
         }, 1200);
     };
 
@@ -383,7 +383,7 @@ export default function FormsPage() {
                             Impacto Operativo y Financiero
                         </h2>
                         <p className="text-gray-600 text-sm font-semibold mt-2">
-                            Aumenta la eficiencia de tus inspecciones y escala la rentabilidad de tu negocio.
+                            Aumenta la eficiencia de tu equipo y escala la rentabilidad de tu negocio.
                         </p>
                     </div>
 
@@ -430,7 +430,7 @@ export default function FormsPage() {
                                 </div>
                                 <h3 className="font-black text-white text-xl mb-2 uppercase">+26% Rentabilidad</h3>
                                 <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed">
-                                    De acuerdo con investigaciones del MIT, las empresas que digitalizan sus operaciones se vuelven un 26% más rentables que sus competidores análogos.
+                                    De acuerdo con investigaciones del MIT, las empresas que digitalizan sus operaciones se vuelven un 26% más rentables que sus competidores en papel.
                                 </p>
                             </div>
                         </div>
@@ -449,7 +449,7 @@ export default function FormsPage() {
                         </h2>
                     </div>
                     <p className="text-gray-600 font-medium text-sm mt-2 md:mt-0 max-w-md">
-                        Selecciona cada etapa para conocer cómo QONTROL® elimina los cuellos de botella del modelo análogo.
+                        Selecciona cada etapa para conocer cómo QONTROL® elimina los cuellos de botella del modelo papel.
                     </p>
                 </div>
 
@@ -494,7 +494,7 @@ export default function FormsPage() {
                                     <div className="my-auto space-y-4 z-10 animate-fadeIn pt-4">
                                         <div className="bg-red-950/40 border border-red-500/40 p-4">
                                             <span className="text-[10px] font-black uppercase text-red-400 block mb-1">
-                                                ❌ Proceso Análogo (Antes):
+                                                Proceso Papel (Antes):
                                             </span>
                                             <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed">
                                                 {item.problem}
@@ -503,7 +503,7 @@ export default function FormsPage() {
 
                                         <div className="bg-emerald-950/40 border border-emerald-500/40 p-4">
                                             <span className="text-[10px] font-black uppercase text-emerald-400 block mb-1">
-                                                ✅ Solución QONTROL® (Ahora):
+                                                Solución QONTROL® (Ahora):
                                             </span>
                                             <p className="text-xs sm:text-sm text-white font-semibold leading-relaxed">
                                                 {item.solution}
@@ -530,7 +530,7 @@ export default function FormsPage() {
                     <div className="text-center max-w-3xl mx-auto mb-10">
                         <span className="text-amber-400 font-black text-xs uppercase tracking-wider">Demostración de la Plataforma</span>
                         <h2 className="text-3xl sm:text-4xl font-black tracking-tight uppercase mt-1">
-                            Control Operativo Unificado
+                            Control Desde Cualquier Dispositivo
                         </h2>
                     </div>
 
@@ -564,15 +564,13 @@ export default function FormsPage() {
                                 <span className="w-3 h-3 rounded-full bg-yellow-500 border border-black" />
                                 <span className="w-3 h-3 rounded-full bg-green-500 border border-black" />
                             </div>
-                            <span className="bg-black text-white px-3 py-1 border border-zinc-700">app.theqontrol.com</span>
-                            <span className="hidden sm:inline text-brand font-bold text-[10px] uppercase">QONTROL AI</span>
                         </div>
 
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                             <div className="lg:col-span-5 space-y-4">
-                                <span className="inline-block bg-white text-black border border-black px-2.5 py-1 text-[11px] font-black uppercase tracking-wider">
-                                    {currentTab.badge}
-                                </span>
+                    <span className="inline-block bg-white text-black border border-black px-2.5 py-1 text-[11px] font-black uppercase tracking-wider">
+                        {currentTab.badge}
+                    </span>
                                 <h3 className="text-2xl font-black leading-tight uppercase">
                                     {currentTab.title}
                                 </h3>
@@ -581,13 +579,19 @@ export default function FormsPage() {
                                 </p>
                                 <div className="pt-2">
                                     <Button
-                                        onClick={() => mostrarToast("Solicitud enviada. Un asesor se pondrá en contacto.", false)}
                                         className="bg-brand text-white font-bold border-2 border-white shadow-[4px_4px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(255,255,255,1)] transition-all rounded-none text-xs h-10 px-5 uppercase"
+                                        asChild
                                     >
-                                        Solicitar Demostración <ArrowUpRight className="ml-1 h-4 w-4" />
+                                        <Link
+                                            href="https://calendar.app.google/HueQQwgFaVgzDoam8"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Solicitar Demostración <ArrowUpRight className="ml-1 h-4 w-4" />
+                                        </Link>
                                     </Button>
                                 </div>
-                            </div>
+                            </div> {/* <--- Se añadió el cierre de div que faltaba aquí */}
 
                             <div className="lg:col-span-7 overflow-hidden border-2 border-white bg-black aspect-video flex items-center justify-center">
                                 <img
@@ -611,13 +615,13 @@ export default function FormsPage() {
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,1)] text-xs font-black uppercase text-black mb-4">
                             <Sparkles className="h-4 w-4 text-brand" />
-                            Infraestructura de Inspección
+                            Infraestructura
                         </div>
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-black uppercase">
                             Arquitectura Tecnológica Industrial
                         </h2>
                         <p className="text-gray-700 text-sm sm:text-base mt-3 font-semibold">
-                            Suite modular diseñada para eliminar el uso de papel, automatizar la generación de reportes y asegurar cumplimiento legal.
+                            Diseñada para eliminar el uso de papel, automatizar la generación de reportes y asegurar cumplimiento legal.
                         </p>
                     </div>
 
@@ -633,7 +637,7 @@ export default function FormsPage() {
                                     Semifinalistas del Premio a la Innovación Mexicana
                                 </h3>
                                 <p className="text-gray-300 text-sm font-medium leading-relaxed">
-                                    Reconocimiento otorgado dentro de la categoría <strong>Transformación Digital e Inteligencia Artificial</strong> por convertir procesos manuales de campo en sistemas de inteligencia operativa en tiempo real.
+                                    Reconocidos como Semifinalistas en la categoría de Transformación Digital e Inteligencia Artificial (Premio a la Innovación Mexicana Qro 2026) por nuestro impacto digitalizando operaciones de campo.
                                 </p>
                             </div>
                             <div className="bg-white text-black p-6 border-2 border-black shadow-[4px_4px_0px_rgba(255,255,255,0.3)] text-center shrink-0">
@@ -653,7 +657,7 @@ export default function FormsPage() {
                                     Firma Digital e Historial
                                 </h3>
                                 <p className="text-gray-700 text-sm font-medium leading-relaxed mb-6">
-                                    Expedientes digitales inalterables con registro de sello y trazabilidad auditables ante Protección Civil y STPS.
+                                    Expedientes digitales inalterables con registro legal.
                                 </p>
                             </div>
 
@@ -669,7 +673,7 @@ export default function FormsPage() {
                                                 Ing. Roberto Garza
                                             </span>
                                             <span className="text-xs text-emerald-700 font-mono font-bold mt-1 flex items-center gap-1 bg-emerald-100 px-2 py-0.5 border border-emerald-600">
-                                                <Check className="h-3 w-3 stroke-[3px]" /> VERIFICADO STPS
+                                                <Check className="h-3 w-3 stroke-[3px]" /> VERIFICADO
                                             </span>
                                         </div>
                                     ) : (
@@ -694,7 +698,7 @@ export default function FormsPage() {
                                     <span>Distribución Inmediata</span>
                                 </div>
                                 <h3 className="text-2xl font-black text-black uppercase mb-3">
-                                    Despacho Automático PDF
+                                    Envió Automático PDF
                                 </h3>
                                 <p className="text-gray-700 text-sm font-medium leading-relaxed mb-6">
                                     Genera e imparte certificados e inspecciones oficiales en formato PDF de manera ilimitada y sin cargos adicionales.
@@ -704,7 +708,7 @@ export default function FormsPage() {
                             <div className="bg-black p-4 text-white font-mono text-xs border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
                                 <div className="flex items-center justify-between text-gray-300 pb-2 mb-2 border-b border-zinc-800 text-[11px] font-bold">
                                     <span className="flex items-center gap-1.5">
-                                        <FileText className="h-4 w-4 text-brand" /> Reporte_Auditoria.pdf
+                                        <FileText className="h-4 w-4 text-brand" /> Reporte.pdf
                                     </span>
                                     <span className="bg-emerald-500 text-black px-1.5 font-sans font-black">GENERADO</span>
                                 </div>
@@ -712,7 +716,7 @@ export default function FormsPage() {
                                 <div className="flex items-center justify-between gap-3 bg-zinc-900 p-3 border border-zinc-800">
                                     <div className="truncate">
                                         <span className="text-gray-400 block text-[9px] font-bold">DESTINATARIO:</span>
-                                        <span className="text-gray-200 text-xs font-bold">auditoria@planta.com</span>
+                                        <span className="text-gray-200 text-xs font-bold">qontrol@planta.com</span>
                                     </div>
                                     <button
                                         onClick={handleSimulateSend}
@@ -739,9 +743,9 @@ export default function FormsPage() {
 
                         <div className="md:col-span-6 bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
                             <FileSpreadsheet className="h-6 w-6 text-black mb-3" />
-                            <h4 className="font-black text-black text-lg uppercase mb-1">Descarga Masiva ZIP</h4>
+                            <h4 className="font-black text-black text-lg uppercase mb-1">Descarga Masiva</h4>
                             <p className="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed">
-                                Exporta paquetes estructurados de inspecciones en formato Excel y PDF organizados por periodos o sedes.
+                                Exporta paquetes estructurados de inspecciones en formato Excel y PDF organizados por periodos o clientes.
                             </p>
                         </div>
 
@@ -756,7 +760,7 @@ export default function FormsPage() {
                         Planes y Esquemas de Servicio
                     </h2>
                     <p className="text-gray-700 text-sm font-semibold mt-2">
-                        Selecciona el plan proporcional al tamaño de tu equipo operativo. Sin plazos forzosos.
+                        Selecciona el plan que más se ajuste a tus necesidades. Sin plazos forzosos.
                     </p>
                 </div>
 
