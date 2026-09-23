@@ -888,7 +888,11 @@ export default function FormsPage() {
                             className="h-12 px-8 font-bold bg-black text-white border-2 border-white shadow-[4px_4px_0px_rgba(255,255,255,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(255,255,255,1)] transition-all rounded-none w-full sm:w-auto uppercase"
                             asChild
                         >
-                            <Link href="https://www.theqontrol.com/" target="_blank">
+                            <Link
+                                href="https://wa.me/5218448809685?text=Hola%20Aldo%20D%C3%ADaz%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20Qontrol"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <MessageSquare className="mr-2 h-4 w-4" /> Contactar con Asesor
                             </Link>
                         </Button>
