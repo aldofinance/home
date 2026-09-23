@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import {
     ArrowUpRight,
@@ -23,65 +23,89 @@ import {
     FileCode2,
     AlertTriangle,
     Check,
-    Quote,
     Award,
     Send,
-    Trophy
+    Trophy,
+    FolderX,
+    TrendingUp,
+    Smartphone,
+    PenTool,
+    Database
 } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-// --- HISTORIAS DE ÉXITO ---
-const customerStories = [
+// --- COMPONENTE DE CONTADOR ANIMADO (Inicia rigurosamente en 0) ---
+function AnimatedCounter({ end, duration = 2200 }: { end: number; duration?: number }) {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        let startTime: number | null = null;
+        let animationFrameId: number;
+
+        const step = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(easeOut * end));
+
+            if (progress < 1) {
+                animationFrameId = requestAnimationFrame(step);
+            } else {
+                setCount(end);
+            }
+        };
+
+        animationFrameId = requestAnimationFrame(step);
+        return () => cancelAnimationFrame(animationFrameId);
+    }, [end, duration]);
+
+    return <>{count.toLocaleString("en-US")}</>;
+}
+
+// --- CASOS DE ESTUDIO OPERATIVOS (REEMPLAZO REAL DEL PAPEL) ---
+const studyCases = [
     {
-        id: "acero",
-        company: "Planta Industrial Coahuila",
-        shortName: "Planta Industrial",
-        tagline: "Reducción del 90% en tiempo de procesamiento de reportes.",
-        quote:
-            "Pasamos de acumular carpetas físicas de extintores y reportes en Excel a tener todo auditado en tiempo real con firma digital. Redujimos de 3,990 a solo 399 minutos mensuales el trabajo administrativo.",
-        author: "Ing. Roberto Garza",
-        role: "Gerente de EHS & Seguridad Industrial",
+        id: "captura",
+        title: "1. Eliminación del Trabajo Doble",
+        shortName: "Captura Directa",
+        problem: "Técnicos acuden con reporte impreso en papel y lo entregan manualmente al capturista para su transcripción y posterior envío.",
+        solution: "Reemplazo total por formularios dinámicos en app web adaptados a la inspección actual, accesibles desde celular, tablet o computadora.",
+        icon: Smartphone,
+        tagline: "0% transcripción manual",
         bgGradient: "bg-black text-white",
-        logoBg: "bg-white/10",
     },
     {
-        id: "extintores",
-        company: "Servicios de Extintores del Norte",
-        shortName: "Extintores del Norte",
-        tagline: "Envío automático de PDF oficial con ubicación GPS al cliente.",
-        quote:
-            "Nuestros clientes reciben el reporte en PDF con firma digital y ubicación GPS en el segundo que el técnico concluye la inspección. Eliminó las horas extras de captura por completo.",
-        author: "Carlos Mendoza",
-        role: "Director de Operaciones",
+        id: "evidencia",
+        title: "2. Registro en Campo & Fotografías",
+        shortName: "Inspección Móvil",
+        problem: "Fotografías sueltas en dispositivos personales y anotaciones en papel sin vinculación directa con el historial del activo.",
+        solution: "El técnico registra 'n' cantidad de extintores u otros activos, adjunta evidencias fotográficas y valida estatus en el mismo lugar.",
+        icon: FileCode2,
+        tagline: "Evidencia fotográfica en sitio",
         bgGradient: "bg-zinc-900 text-white",
-        logoBg: "bg-white/10",
     },
     {
-        id: "logistica",
-        company: "Grupo Logístico & Mantenimiento",
-        shortName: "Grupo Logístico",
-        tagline: "Gestión auditable de más de 1,500 activos sin desorden.",
-        quote:
-            "Organizar miles de códigos QR y fotografías solía ser un desafío complejo. Con QONTROL, cada evidencia se vincula automáticamente al activo correspondiente de forma inalterable.",
-        author: "Dra. Sofía Treviño",
-        role: "Coordinadora de Calidad",
+        id: "firma",
+        title: "3. Firma Digital & Entrega Instantánea",
+        shortName: "Despacho Inmediato",
+        problem: "Días o semanas de retraso para que el cliente reciba la documentación oficial del servicio o auditoría realizada.",
+        solution: "Captura de firma digital del técnico y del cliente en pantalla. En segundos se emite el PDF oficial con identidad corporativa y se entrega al cliente.",
+        icon: PenTool,
+        tagline: "Reporte generado en segundos",
         bgGradient: "bg-stone-900 text-white",
-        logoBg: "bg-white/10",
     },
     {
-        id: "seguridad",
-        company: "Seguridad Corporativa MX",
-        shortName: "Seguridad MX",
-        tagline: "100% cumplimiento legal ante STPS y Protección Civil.",
-        quote:
-            "Las bitácoras inalterables y la trazabilidad geográfica nos brindan absoluta tranquilidad durante las inspecciones de autoridades oficiales y auditorías internacionales.",
-        author: "Alejandro Reyes",
-        role: "Consultor de Risk Management",
+        id: "historial",
+        title: "4. Historial Auditable en la Nube",
+        shortName: "Control Administrador",
+        problem: "Hojas traspapeladas, archivos dispersos y falta de visibilidad del cumplimiento general ante auditorías.",
+        solution: "Panel de administración centralizado con acceso al historial completo de todas las revisiones, con trazabilidad inalterable.",
+        icon: Database,
+        tagline: "Acceso total para administradores",
         bgGradient: "bg-neutral-900 text-white",
-        logoBg: "bg-white/10",
     },
 ];
 
@@ -207,14 +231,14 @@ const faqs = [
 
 export default function FormsPage() {
     // ESTADOS
-    const [activeStory, setActiveStory] = useState("acero");
+    const [activeCase, setActiveCase] = useState("captura");
     const [activeTab, setActiveTab] = useState("dashboard");
     const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
     const [signed, setSigned] = useState(false);
     const [sendingStatus, setSendingStatus] = useState<"idle" | "sending" | "sent">("idle");
 
-    // TOAST STATE (Corregido)
+    // TOAST STATE (Original)
     const [toast, setToast] = useState<{ show: boolean; message: string; isError: boolean }>({
         show: false,
         message: "",
@@ -252,16 +276,8 @@ export default function FormsPage() {
         <div className="min-h-screen bg-[#fcfcf9] text-black font-montserrat antialiased selection:bg-black selection:text-white">
             <Navbar />
 
-            {/* BANNER OFICIAL INNOVAFEST 2026 */}
-            <div className="bg-black text-white border-b-2 border-black py-3 px-4 text-center text-xs sm:text-sm font-bold flex items-center justify-center gap-2 pt-20 sm:pt-24 shadow-[0_4px_0_rgba(0,0,0,1)] relative z-20">
-                <Trophy className="h-4 w-4 text-amber-400 shrink-0" />
-                <span>
-                    <strong>COMUNICADO OFICIAL:</strong> QONTROL ha sido nombrado semifinalista en el <strong>InnovaFest 2026</strong> — Premio a la Innovación Mexicana.
-                </span>
-            </div>
-
             {/* 1. HERO SECTION */}
-            <section className="pt-16 pb-20 md:pt-20 md:pb-24 max-w-7xl mx-auto px-6">
+            <section className="pt-28 pb-12 md:pt-36 md:pb-16 max-w-7xl mx-auto px-6">
                 <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
 
                     {/* BADGE NEO-BRUTALISTA */}
@@ -316,79 +332,143 @@ export default function FormsPage() {
                 </div>
             </section>
 
-            {/* 2. COSTO DE OPORTUNIDAD */}
+            {/* SECCIÓN DE CONTADORES EN VIVO */}
+            <section className="pb-20 max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    {/* TARJETA 1: ACTIVOS REGISTRADOS */}
+                    <div className="bg-white border-2 border-black p-8 sm:p-10 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative overflow-hidden flex flex-col justify-between">
+                        <div className="flex items-center justify-between mb-6">
+                            <span className="text-[11px] font-black uppercase tracking-wider bg-black text-white px-3 py-1 border border-black">
+                                Métrica Oficial
+                            </span>
+                            <ShieldCheck className="h-7 w-7 text-brand" />
+                        </div>
+
+                        <div>
+                            <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-black tracking-tight leading-none my-2 font-mono">
+                                +<AnimatedCounter end={24411} duration={2500} />
+                            </div>
+                            <h3 className="text-2xl font-black text-black uppercase mt-4">
+                                Activos registrados
+                            </h3>
+                        </div>
+                    </div>
+
+                    {/* TARJETA 2: EMPRESAS IMPACTADAS */}
+                    <div className="bg-white border-2 border-black p-8 sm:p-10 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative overflow-hidden flex flex-col justify-between">
+                        <div className="flex items-center justify-between mb-6">
+                            <span className="text-[11px] font-black uppercase tracking-wider bg-brand text-white px-3 py-1 border border-black">
+                                Cobertura Comercial
+                            </span>
+                            <Building2 className="h-7 w-7 text-black" />
+                        </div>
+
+                        <div>
+                            <div className="text-5xl sm:text-6xl lg:text-7xl font-black text-black tracking-tight leading-none my-2 font-mono">
+                                +<AnimatedCounter end={541} duration={2000} />
+                            </div>
+                            <h3 className="text-2xl font-black text-black uppercase mt-4">
+                                Empresas impactadas
+                            </h3>
+                            <p className="text-sm font-medium text-gray-700 mt-2 leading-relaxed">
+                                Negocios que han recibido documentación oficial de Qontrol.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            {/* 2. TRES TARJETAS DE IMPACTO (90% AHORRO, DESORDEN, MIT) */}
             <section className="py-16 bg-white border-y-2 border-black">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center max-w-2xl mx-auto mb-12">
                         <h2 className="text-2xl sm:text-3xl font-black text-black uppercase tracking-tight">
-                            Impacto Operativo y Costos del Trabajo Análogo
+                            Impacto Operativo y Financiero
                         </h2>
                         <p className="text-gray-600 text-sm font-semibold mt-2">
-                            Los procesos manuales en papel generan pérdidas sistemáticas de productividad y vulnerabilidad normativa.
+                            Aumenta la eficiencia de tus inspecciones y escala la rentabilidad de tu negocio.
                         </p>
                     </div>
 
+                    {/* 3 TARJETAS MINIMALISTAS Y UNIFORMES */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-[#fcfcf9] p-8 border-2 border-black shadow-[5px_5px_0px_rgba(0,0,0,1)]">
-                            <div className="w-12 h-12 bg-black text-white border-2 border-black flex items-center justify-center mb-6 font-bold">
-                                <Clock className="h-6 w-6" />
-                            </div>
-                            <h3 className="font-black text-black text-xl mb-2 uppercase">3,990 Min. Perdidos</h3>
-                            <p className="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed">
-                                Transcribir bitácoras manuales a tablas de Excel y compilar fotografías físicas genera cuellos de botella para el cierre de auditorías y facturación.
-                            </p>
-                        </div>
 
-                        <div className="bg-[#fff0f0] p-8 border-2 border-black shadow-[5px_5px_0px_rgba(0,0,0,1)]">
-                            <div className="w-12 h-12 bg-red-600 text-white border-2 border-black flex items-center justify-center mb-6 font-bold">
-                                <AlertTriangle className="h-6 w-6" />
-                            </div>
-                            <h3 className="font-black text-black text-xl mb-2 uppercase">Riesgo Legal / STPS</h3>
-                            <p className="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed">
-                                Los registros en papel carecen de marcas de tiempo GPS y firmas inalterables, exponiendo a la empresa a sanciones en revisiones oficiales de Protección Civil.
-                            </p>
-                        </div>
-
-                        <div className="bg-brand/10 p-8 border-2 border-black shadow-[5px_5px_0px_rgba(0,0,0,1)] relative">
+                        {/* TARJETA 1: 90% AHORRO DE TIEMPO */}
+                        <div className="bg-brand/10 p-8 border-2 border-black shadow-[5px_5px_0px_rgba(0,0,0,1)] relative flex flex-col justify-between">
                             <span className="absolute -top-3 right-4 bg-brand text-white border border-black text-[10px] font-black uppercase px-2.5 py-0.5">
-                                Con QONTROL: -90%
+                                Eficiencia Directa
                             </span>
-                            <div className="w-12 h-12 bg-brand text-white border-2 border-black flex items-center justify-center mb-6 font-bold">
-                                <Zap className="h-6 w-6" />
+                            <div>
+                                <div className="w-12 h-12 bg-brand text-white border-2 border-black flex items-center justify-center mb-6 font-bold">
+                                    <Zap className="h-6 w-6" />
+                                </div>
+                                <h3 className="font-black text-black text-xl mb-2 uppercase">90% Ahorro de Tiempo</h3>
+                                <p className="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed">
+                                    En cada reporte emitido ahorras el 90% del tiempo administrativo, eliminando por completo la captura manual de datos y la transcripción física.
+                                </p>
                             </div>
-                            <h3 className="font-black text-black text-xl mb-2 uppercase">Reducción a 399 Min.</h3>
-                            <p className="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed">
-                                El procesamiento automatizado de información reduce en un 90% el tiempo administrativo, generando reportes firmados de inmediato.
-                            </p>
                         </div>
+
+                        {/* TARJETA 2: DESORDEN DOCUMENTAL */}
+                        <div className="bg-[#fff0f0] p-8 border-2 border-black shadow-[5px_5px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+                            <div>
+                                <div className="w-12 h-12 bg-red-600 text-white border-2 border-black flex items-center justify-center mb-6 font-bold">
+                                    <FolderX className="h-6 w-6" />
+                                </div>
+                                <h3 className="font-black text-black text-xl mb-2 uppercase">Desorden Documental</h3>
+                                <p className="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed">
+                                    Miles de hojas físicas y archivos extraviados saturan a tu equipo, generando lentitud en los sistemas, retrasos en la facturación y falta de control sobre los activos.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* TARJETA 3: ESTUDIO MIT */}
+                        <div className="bg-black text-white p-8 border-2 border-black shadow-[5px_5px_0px_rgba(0,0,0,1)] relative flex flex-col justify-between">
+                            <span className="absolute -top-3 right-4 bg-white text-black border border-black text-[10px] font-black uppercase px-2.5 py-0.5">
+                                Estudio MIT
+                            </span>
+                            <div>
+                                <div className="w-12 h-12 bg-white text-black border-2 border-black flex items-center justify-center mb-6 font-bold">
+                                    <TrendingUp className="h-6 w-6 text-brand" />
+                                </div>
+                                <h3 className="font-black text-white text-xl mb-2 uppercase">+26% Rentabilidad</h3>
+                                <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed">
+                                    De acuerdo con investigaciones del MIT, las empresas que digitalizan sus operaciones se vuelven un 26% más rentables que sus competidores análogos.
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
 
-            {/* 3. HISTORIAS DE ÉXITO */}
+            {/* 3. CASOS DE ESTUDIO: REEMPLAZO DEL PAPEL EN TIEMPO REAL */}
             <section className="py-20 max-w-7xl mx-auto px-6">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
                     <div>
-                        <span className="text-brand font-black text-xs uppercase tracking-wider">Resultados Comprobados</span>
+                        <span className="text-brand font-black text-xs uppercase tracking-wider">Transformación Digital Real</span>
                         <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-black uppercase mt-1">
-                            Casos de Éxito en la Industria
+                            Casos de Estudio: Del Papel a Tiempo Real
                         </h2>
                     </div>
                     <p className="text-gray-600 font-medium text-sm mt-2 md:mt-0 max-w-md">
-                        Selecciona las tarjetas para conocer la experiencia de plantas industriales y empresas de mantenimiento.
+                        Selecciona cada etapa para conocer cómo QONTROL® elimina los cuellos de botella del modelo análogo.
                     </p>
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-6 h-auto lg:h-[420px]">
-                    {customerStories.map((story) => {
-                        const isSelected = activeStory === story.id;
+                    {studyCases.map((item) => {
+                        const isSelected = activeCase === item.id;
+                        const Icon = item.icon;
                         return (
                             <div
-                                key={story.id}
-                                onClick={() => setActiveStory(story.id)}
+                                key={item.id}
+                                onClick={() => setActiveCase(item.id)}
                                 className={cn(
                                     "relative border-2 border-black shadow-[5px_5px_0px_rgba(0,0,0,1)] cursor-pointer transition-all duration-300 flex flex-col justify-between p-8 text-white overflow-hidden",
-                                    story.bgGradient,
+                                    item.bgGradient,
                                     {
                                         "lg:flex-[3.5] opacity-100": isSelected,
                                         "lg:flex-[0.9] opacity-80 hover:opacity-100": !isSelected,
@@ -398,48 +478,49 @@ export default function FormsPage() {
                                 <div className="flex items-start justify-between z-10">
                                     <div className="flex items-center gap-3">
                                         <div className="p-2 border border-white/20 bg-white/10">
-                                            <Building2 className="h-6 w-6 text-white" />
+                                            <Icon className="h-6 w-6 text-white" />
                                         </div>
                                         {isSelected && (
                                             <div>
-                                                <h4 className="font-black text-base leading-tight uppercase">{story.company}</h4>
-                                                <span className="text-xs text-white/70 font-semibold">Planta Certificada</span>
+                                                <h4 className="font-black text-base leading-tight uppercase">{item.title}</h4>
+                                                <span className="text-xs text-brand font-bold uppercase">{item.tagline}</span>
                                             </div>
                                         )}
                                     </div>
 
                                     {!isSelected && (
                                         <span className="hidden lg:block rotate-90 origin-top-left text-xs font-black uppercase tracking-widest text-white/70 whitespace-nowrap mt-12">
-                                            {story.shortName}
+                                            {item.shortName}
                                         </span>
                                     )}
                                 </div>
 
                                 {isSelected && (
-                                    <div className="my-auto space-y-6 z-10 animate-fadeIn pt-4">
-                                        <Quote className="h-8 w-8 text-white/30" />
+                                    <div className="my-auto space-y-4 z-10 animate-fadeIn pt-4">
+                                        <div className="bg-red-950/40 border border-red-500/40 p-4">
+                                            <span className="text-[10px] font-black uppercase text-red-400 block mb-1">
+                                                ❌ Proceso Análogo (Antes):
+                                            </span>
+                                            <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed">
+                                                {item.problem}
+                                            </p>
+                                        </div>
 
-                                        <p className="text-base sm:text-xl font-medium leading-relaxed tracking-tight text-white">
-                                            "{story.quote}"
-                                        </p>
-
-                                        <div className="pt-4 border-t border-white/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                                            <div>
-                                                <p className="font-bold text-sm text-white">{story.author}</p>
-                                                <p className="text-xs text-white/70">{story.role}</p>
-                                            </div>
-
-                                            <div className="inline-flex items-center gap-2 text-xs font-bold bg-white/10 border border-white/30 px-3 py-1.5">
-                                                <span>{story.tagline}</span>
-                                            </div>
+                                        <div className="bg-emerald-950/40 border border-emerald-500/40 p-4">
+                                            <span className="text-[10px] font-black uppercase text-emerald-400 block mb-1">
+                                                ✅ Solución QONTROL® (Ahora):
+                                            </span>
+                                            <p className="text-xs sm:text-sm text-white font-semibold leading-relaxed">
+                                                {item.solution}
+                                            </p>
                                         </div>
                                     </div>
                                 )}
 
                                 {!isSelected && (
                                     <div className="lg:hidden z-10 pt-4 border-t border-white/20">
-                                        <h4 className="font-bold text-sm text-white uppercase">{story.company}</h4>
-                                        <p className="text-xs text-white/70 line-clamp-1">{story.tagline}</p>
+                                        <h4 className="font-bold text-sm text-white uppercase">{item.title}</h4>
+                                        <p className="text-xs text-white/70 line-clamp-1">{item.tagline}</p>
                                     </div>
                                 )}
                             </div>
@@ -698,8 +779,8 @@ export default function FormsPage() {
                         >
                             {plan.popular && (
                                 <span className="absolute -top-3 right-6 bg-brand text-white border border-black text-[10px] font-black uppercase tracking-wider px-3 py-1">
-                                    Recomendado
-                                </span>
+                        Recomendado
+                    </span>
                             )}
 
                             <div>
@@ -734,6 +815,19 @@ export default function FormsPage() {
                             </Button>
                         </div>
                     ))}
+                </div>
+
+                {/* BOTÓN DE COMPARACIÓN DETALLADA */}
+                <div className="mt-14 text-center">
+                    <Button
+                        className="h-13 px-8 text-sm font-black bg-white text-black border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all rounded-none uppercase inline-flex items-center gap-2"
+                        asChild
+                    >
+                        <Link href="/pricing">
+                            <span>Ver tabla de comparación a detalle</span>
+                            <ArrowUpRight className="h-4 w-4 text-brand stroke-[3px]" />
+                        </Link>
+                    </Button>
                 </div>
             </section>
 
@@ -805,7 +899,7 @@ export default function FormsPage() {
 
             <Footer />
 
-            {/* COMPONENTE DE NOTIFICACIÓN TOAST */}
+            {/* COMPONENTE DE NOTIFICACIÓN TOAST (ORIGINAL) */}
             {toast.show && (
                 <div
                     className={cn(
