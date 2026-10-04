@@ -9,7 +9,7 @@ export default function Cumplimiento() {
             <main className="w-full pt-28 pb-16 px-4 md:px-8 max-w-4xl mx-auto">
                 {/* Fecha fija */}
                 <p className="text-center text-sm font-bold text-brand mb-2">
-                    Ultima Actualización: 30 de agosto de 2026
+                    Ultima Actualización: 3 de octubre de 2026
                 </p>
 
                 {/* Título */}
