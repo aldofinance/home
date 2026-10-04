@@ -43,7 +43,7 @@ const Footer = () => {
       items: [
         { href: "/terminos-y-condiciones", label: "Términos y Condiciones" },
         { href: "/aviso-de-privacidad", label: "Aviso de privacidad" },
-        { href: "/cumplimiento-de-seguridad", label: "Cumplimiento de Seguridad" },
+        { href: "/seguridad", label: "Seguridad" },
         { href: "/uso-de-marca", label: "Uso de Marca" },
       ],
     },
